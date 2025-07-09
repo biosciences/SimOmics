@@ -1,0 +1,21 @@
+Package: SimOmics
+Type: Package
+Title: Simulation Toolkit for Multivariate and Omics Data
+Version: 0.1.0
+Authors@R: 
+    person("Your", "Name", email = "your@email.com", role = c("aut", "cre"))
+Description: Tools to simulate synthetic multi-omics and multivariate datasets with user-defined covariance structures, latent factors, sparsity, and block integration, suitable for benchmarking and method development.
+License: MIT
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    MASS,
+    mvtnorm,
+    Matrix,
+    stats,
+    mixOmics
+Suggests: 
+    testthat,
+    knitr,
+    rmarkdown
+RoxygenNote: 7.2.3

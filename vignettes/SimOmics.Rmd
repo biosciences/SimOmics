@@ -1,0 +1,86 @@
+---
+title: "SimOmics Demo"
+author: "SimOmics Development Team"
+output: html_document
+vignette: >
+  %\VignetteIndexEntry{SimOmics Demo}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r load-packages}
+devtools::load_all(".")  # From root of your SimOmics folder
+library(SimOmics)
+library(mixOmics)
+```
+
+
+# Introduction
+
+This vignette demonstrates how to use the `SimOmics` package to simulate multi-omics data with latent structures and block-wise covariance. The goal is to provide synthetic, biologically-plausible data for benchmarking integration methods like `mixOmics`.
+
+# Simulate Multi-Omics Data
+
+```{r simulate}
+sim_data <- simulate_multiomics(
+  n = 200,
+  block_dims = list(transcriptome = 1000, proteome = 200),
+  n_factors = 3,
+  block_corr = 0.4,
+  noise_sd = 0.5,
+  seed = 123
+)
+```
+
+```{r check-structure}
+str(sim_data$X_blocks)
+```
+
+# Visualize Simulated Data
+
+## PCA of Transcriptome
+
+```{r pca}
+# Example: Save PCA plot
+png("pca_plot.png", width = 1200, height = 1000, res = 200)
+plot_simulated_data(sim_data, type = "pca", block = "transcriptome")
+dev.off()
+plot_simulated_data(sim_data, type = "pca", block = "transcriptome")
+```
+
+## Correlation Heatmap Across Blocks
+
+```{r corr}
+png("correlation_plot.png", width = 3000, height = 3000, res = 300)
+plot_simulated_data(sim_data, type = "correlation")
+dev.off()
+plot_simulated_data(sim_data, type = "correlation")
+```
+
+# Use in mixOmics
+
+We now apply `block.pls` from the `mixOmics` package to integrate the transcriptome and proteome blocks.
+
+```{r mixomics}
+Y <- factor(rep(c("A", "B"), each = 100))
+res <- block.plsda(X = sim_data$X_blocks, Y = Y, ncomp = 2)
+png("plsda_simulated.png", width = 1600, height = 1400, res = 200)
+plotIndiv(res, legend = TRUE, title = "PLS-DA of Simulated Multi-Omics Data")
+dev.off()
+plotIndiv(res, legend = TRUE)
+```
+
+# Save simulation data
+```{r save}
+saveRDS(sim_data, file = "sim_data.rds")
+write.csv(sim_data$X_blocks$transcriptome, file = "transcriptome.csv", row.names = FALSE)
+write.csv(sim_data$X_blocks$proteome, file = "proteome.csv", row.names = FALSE)
+```
+
+# Conclusion
+
+This example shows how SimOmics can generate reproducible, structured multi-omics datasets for integration and benchmarking. These synthetic data allow control over latent factors, noise, and covariance structure to stress-test bioinformatics methods.

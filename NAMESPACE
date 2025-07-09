@@ -1,0 +1,5 @@
+export(simulate_multiomics)
+export(simulate_latent_factors)
+export(simulate_block_structure)
+export(simulate_multivariate)
+export(plot_simulated_data)
