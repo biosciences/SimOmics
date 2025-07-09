@@ -82,7 +82,7 @@ SimOmics/
 ├── tests/testthat/        # Unit tests
 ├── paper.md               # JOSS paper
 ├── paper.bib              # Bibliography for JOSS paper
-└── README.md              # This file
+└── README.md              # Project documentation
 ```
 
 ---
@@ -112,6 +112,10 @@ devtools::test()
 ## ✨ Citation
 
 If you use SimOmics in your research, please cite the accompanying JOSS paper (in submission).
+
+```
+Lai, K. (2025). SimOmics: A Simulation Toolkit for Multivariate and Multi-Omics Data. Journal of Open Source Software. (under review)
+```
 
 ---
 
