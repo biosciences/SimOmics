@@ -1,4 +1,3 @@
-
 ---
 title: "SimOmics: A Simulation Toolkit for Multivariate and Multi-Omics Data"
 authors:
@@ -6,9 +5,9 @@ authors:
     affiliation: 1
     orcid: 0000-0002-9420-9352
 affiliations:
-  - name: Your Institution
-    index: 1
-date: 2025-07-08
+  - index: 1
+    name: University of Sydney
+date: 8 July 2025
 bibliography: paper.bib
 ---
 
@@ -64,6 +63,11 @@ The following figure shows the result of applying `mixOmics::block.plsda()` to t
 ![PLS-DA of simulated multi-omics dataset](manuscript/figures/plsda_simulated.png)
 
 **Figure 1.** PLS-DA of the simulated multi-omics dataset. Samples (colored by class A and B) are projected into a shared latent space. The partial overlap illustrates integrated but not fully class-discriminative structure — a common challenge in real-world omics data.
+
+# Software Repository
+
+The source code for SimOmics is freely available on GitHub at:  
+[https://github.com/biosciences/SimOmics](https://github.com/biosciences/SimOmics)
 
 # Acknowledgements
 

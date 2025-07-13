@@ -4,6 +4,10 @@
 
 ---
 
+## 📄 Project Links
+- 📂 [Source Code](https://github.com/biosciences/SimOmics): Explore the full repository
+- 🔗 [Live Report](https://biosciences.github.io/SimOmics/SimOmics.html): View the interactive HTML output
+
 ## 🚀 Features
 
 - Simulate multiple omics blocks with customizable dimensions
