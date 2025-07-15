@@ -117,7 +117,7 @@ devtools::test()
 
 If you use SimOmics in your research, please cite the accompanying JOSS paper (in submission).
 
-Lai, K. (2025). *SimOmics: A Simulation Toolkit for Multivariate and Multi-Omics Data*. arXiv: https://doi.org/10.48550/arXiv.2507.09967 (submitted to *Journal of Open Source Software*).
+> Lai, K. (2025). *SimOmics: A Simulation Toolkit for Multivariate and Multi-Omics Data*. arXiv: https://doi.org/10.48550/arXiv.2507.09967 (submitted to *Journal of Open Source Software*). https://github.com/biosciences/SimOmics
 
 ---
 
